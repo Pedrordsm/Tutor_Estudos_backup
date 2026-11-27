@@ -1,0 +1,83 @@
+{
+  "cabecalho": {
+    "versao_contrato": "1.0",
+    "modulo": "tutor_estudos",
+    "gerado_em": "2026-11-26T23:59:27.515355-03:00",
+    "id_formando": "f03"
+  },
+  "horas_semanais": 6.0,
+  "data_inicio": "2026-11-26",
+  "data_prevista_conclusao": "2026-12-02",
+  "topicos": [
+    {
+      "ordem": 1,
+      "habilidade": "Git",
+      "titulo": "Commits",
+      "objetivos": [
+        "Compreender o conceito de commit no Git.",
+        "Praticar a criação de commits."
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 1.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "concluido"
+    },
+    {
+      "ordem": 2,
+      "habilidade": "Git",
+      "titulo": "Branches",
+      "objetivos": [
+        "Compreender o conceito de branches no Git.",
+        "Praticar a criação de branches."
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 1.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "concluido"
+    },
+    {
+      "ordem": 3,
+      "habilidade": "Git",
+      "titulo": "Push",
+      "objetivos": [
+        "Compreender o conceito de push no Git.",
+        "Praticar o envio de alterações para um repositório remoto."
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 1.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "concluido"
+    },
+    {
+      "ordem": 4,
+      "habilidade": "Kubernetes",
+      "titulo": "Pods",
+      "objetivos": [
+        "Compreender o conceito de Pods em Kubernetes.",
+        "Praticar a criação de Pods."
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 1.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "concluido"
+    },
+    {
+      "ordem": 5,
+      "habilidade": "Kubernetes",
+      "titulo": "Services",
+      "objetivos": [
+        "Compreender o conceito de Services em Kubernetes.",
+        "Praticar a criação de Services."
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 1.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "concluido"
+    }
+  ]
+}

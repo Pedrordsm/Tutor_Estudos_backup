@@ -1,0 +1,69 @@
+{
+  "cabecalho": {
+    "versao_contrato": "1.0",
+    "modulo": "tutor_estudos",
+    "gerado_em": "2026-11-26T23:52:40.977307-03:00",
+    "id_formando": "f02"
+  },
+  "horas_semanais": 50.0,
+  "data_inicio": "2026-11-26",
+  "data_prevista_conclusao": "2026-11-28",
+  "topicos": [
+    {
+      "ordem": 1,
+      "habilidade": "Django",
+      "titulo": "Modelagem de Banco de Dados com Django",
+      "objetivos": [
+        "Compreender a estrutura básica de um modelo de banco de dados no Django",
+        "Criar e manipular modelos de banco de dados no Django"
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 4.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "pendente"
+    },
+    {
+      "ordem": 2,
+      "habilidade": "SQL",
+      "titulo": "Diferentes Tipos de Joins em SQL",
+      "objetivos": [
+        "Entender o conceito de Join",
+        "Praticar com INNER, LEFT, RIGHT e FULL JOIN"
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 2.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "pendente"
+    },
+    {
+      "ordem": 3,
+      "habilidade": "Testes automatizados",
+      "titulo": "Testes unitários com pytest",
+      "objetivos": [
+        "Compreender a importância de testes automatizados",
+        "Criar e executar testes unitários com pytest"
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 2.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "pendente"
+    },
+    {
+      "ordem": 4,
+      "habilidade": "AWS",
+      "titulo": "Introdução ao AWS",
+      "objetivos": [
+        "Compreender a estrutura básica do AWS",
+        "Criar e configurar recursos básicos no AWS"
+      ],
+      "prerequisitos": [],
+      "horas_estimadas": 2.0,
+      "atividades": [],
+      "projeto_pratico": null,
+      "situacao": "pendente"
+    }
+  ]
+}

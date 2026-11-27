@@ -1,0 +1,50 @@
+{
+  "cabecalho": {
+    "versao_contrato": "1.0",
+    "modulo": "tutor_estudos",
+    "gerado_em": "2026-11-26T23:53:12.737089-03:00",
+    "id_formando": "f02"
+  },
+  "sessoes": [
+    {
+      "data": "2026-11-26T23:53:12.737053-03:00",
+      "topico": "Recapitulação e Próximos Passos",
+      "resumo_explicacao": "O texto recapitula onde o usuário parou, relembrando que a próxima etapa envolve SQL, especificamente os diferentes tipos de `JOIN`. Seguem as instruções para o usuário criar consultas `INNER`, `LEFT`, `RIGHT` e `FULL JOIN`.",
+      "exercicios": [
+        {
+          "enunciado": "Escreva uma consulta que use `INNER JOIN` para recuperar os alunos e suas matrículas.",
+          "tipo": "codigo",
+          "resposta_formando": "```sql\n-- INNER JOIN\nSELECT s.id, s.name, e.course_id\nFROM students s\nINNER JOIN enrollments e ON s.id = e.student_id;\n```",
+          "correto": null,
+          "feedback": null
+        },
+        {
+          "enunciado": "Escreva uma consulta que use `LEFT JOIN` para recuperar todos os alunos e as matrículas correspondentes, incluindo alunos sem matrículas.",
+          "tipo": "codigo",
+          "resposta_formando": "```sql\n-- LEFT JOIN\nSELECT s.id, s.name, e.course_id\nFROM students s\nLEFT JOIN enrollments e ON s.id = e.student_id;\n```",
+          "correto": null,
+          "feedback": null
+        },
+        {
+          "enunciado": "Escreva uma consulta que use `RIGHT JOIN` para recuperar todos os cursos e as matrículas correspondentes, incluindo cursos sem matrículas.",
+          "tipo": "codigo",
+          "resposta_formando": "```sql\n-- RIGHT JOIN\nSELECT s.id, s.name, e.course_id\nFROM students s\nRIGHT JOIN enrollments e ON s.id = e.student_id;\n```",
+          "correto": null,
+          "feedback": null
+        },
+        {
+          "enunciado": "Escreva uma consulta que use `FULL JOIN` para recuperar todos os alunos e cursos, incluindo alunos sem matrículas e cursos sem alunos.",
+          "tipo": "codigo",
+          "resposta_formando": "```sql\n-- FULL JOIN\nSELECT s.id, s.name, e.course_id\nFROM students s\nFULL JOIN enrollments e ON s.id = e.student_id;\n```",
+          "correto": null,
+          "feedback": null
+        }
+      ],
+      "desempenho": 0.0
+    }
+  ],
+  "habilidades_adquiridas": [],
+  "ajustes_plano": [
+    "Próximo passo: Começar com a consulta `INNER JOIN` e avançar para os outros tipos de `JOIN` conforme o usuário for se sentindo confortável."
+  ]
+}

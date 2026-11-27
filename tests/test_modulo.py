@@ -10,7 +10,7 @@ from carreira_contratos import Exercicio, PlanoEstudos, RegistroProgresso, salva
 from carreira_contratos.verificar import verificar as verificar_contrato
 from tutor_estudos import cli
 from tutor_estudos.calculos import calcular_data_conclusao, calcular_desempenho, montar_plano, montar_progresso
-from tutor_estudos.fidelidade import verificar_plano, verificar_progresso
+from tutor_estudos.fidelidade import normalizar_habilidades_plano, verificar_plano, verificar_progresso
 from tutor_estudos.modelos import RascunhoPlano, RascunhoProgresso
 from tutor_estudos.sandbox import executar_python_isolado, executar_sql_memoria
 from tutor_estudos.servico import ErroFidelidade
@@ -91,6 +91,12 @@ def test_fidelidade_plano(lacunas_ficticias):
 
     irreal = RascunhoPlano.model_validate_json(json_rascunho_plano(horas_semanais=120.0))
     assert any("horas_semanais" in p for p in verificar_plano(irreal, lacunas_ficticias))
+
+    # Nome descritivo inequívoco ("Modelagem com Power BI") normaliza para "Power BI";
+    # habilidade inventada ("Rust") continua sendo bloqueada.
+    descritivo = RascunhoPlano.model_validate_json(json_rascunho_plano().replace('"Power BI"', '"Modelagem com Power BI"'))
+    assert verificar_plano(normalizar_habilidades_plano(descritivo, lacunas_ficticias), lacunas_ficticias) == []
+    assert descritivo.topicos[0].habilidade == "Power BI"
 
 
 def test_fidelidade_progresso_e_calculos(lacunas_ficticias):

@@ -46,7 +46,7 @@ class AvaliacaoExercicio(BaseModel):
 class RascunhoTopico(BaseModel):
     habilidade: str = Field(min_length=1)
     titulo: str = Field(min_length=1)
-    objetivos: list[str] = []
+    objetivos: list[str] = Field(min_length=1, description="Pelo menos 1 objetivo de aprendizagem do tópico.")
     prerequisitos: list[str] = []
     horas_estimadas: float = Field(gt=0)
     atividades: list[str] = []

@@ -14,7 +14,7 @@ from carreira_contratos import Curriculo, Exercicio, Lacunas, PlanoEstudos, Regi
 from carreira_contratos.modelos import TipoExercicio
 
 from .calculos import MODULO, montar_plano, montar_progresso
-from .fidelidade import verificar_plano, verificar_progresso
+from .fidelidade import normalizar_habilidades_plano, verificar_plano, verificar_progresso
 from .modelos import AvaliacaoExercicio, RascunhoPlano, RascunhoProgresso
 from .sandbox import (
     executar_codigo_python,
@@ -62,7 +62,7 @@ class ServicoTutor:
         modelo: Union[Model, str],
         db: SqliteDb,
         telemetria: bool = False,
-        tentativas_fidelidade: int = 2,
+        tentativas_fidelidade: int = 3,
         timeout_sandbox: int = 5,
     ):
         self.tentativas_fidelidade = tentativas_fidelidade
@@ -257,15 +257,22 @@ class ServicoTutor:
         prompt = _contexto(lacunas, curriculo) + "\n\nConversa (JSON):\n" + json.dumps(conversa, ensure_ascii=False)
 
         habilidades_permitidas = ", ".join(f'"{l.habilidade}"' for l in lacunas.itens)
+        lacunas_alta = ", ".join(f'"{l.habilidade}"' for l in lacunas.itens if l.prioridade == "alta")
         prompt_plano = (
             prompt
             + f"\n\nLembrete obrigatório: o campo `habilidade` de cada tópico deve ser EXATAMENTE um destes valores: {habilidades_permitidas}."
+            + (
+                f" TODAS as lacunas de prioridade alta ({lacunas_alta}) DEVEM ter pelo menos um tópico no plano "
+                "(mesmo que ainda estejam com `situacao: \"pendente\"` por não terem sido estudadas na conversa)."
+                if lacunas_alta
+                else ""
+            )
         )
         rascunho_plano = self._gerar_verificado(
             self.extrator_plano,
             RascunhoPlano,
             prompt_plano,
-            lambda r: verificar_plano(r, lacunas),
+            lambda r: verificar_plano(normalizar_habilidades_plano(r, lacunas), lacunas),
         )
         plano = montar_plano(rascunho_plano, lacunas, id_formando)
 

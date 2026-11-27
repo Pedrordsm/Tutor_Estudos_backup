@@ -1,0 +1,49 @@
+{
+  "cabecalho": {
+    "versao_contrato": "1.0",
+    "modulo": "tutor_estudos",
+    "gerado_em": "2026-11-27T00:00:31.356538-03:00",
+    "id_formando": "f03"
+  },
+  "sessoes": [
+    {
+      "data": "2026-11-27T00:00:31.356478-03:00",
+      "topico": "Git Básico",
+      "resumo_explicacao": "",
+      "exercicios": [
+        {
+          "enunciado": "Crie um repositório no GitHub com o nome `git-basico` e faça o seguinte:",
+          "tipo": "objetiva",
+          "resposta_formando": "(c) `git switch -c desenvolvimento`",
+          "correto": true,
+          "feedback": "Parabéns, Tainá! Você acertou a resposta. O comando `git switch -c desenvolvimento` cria a branch `desenvolvimento` a partir da branch `main` e automaticamente muda para essa nova branch."
+        }
+      ],
+      "desempenho": 1.0
+    },
+    {
+      "data": "2026-11-27T00:00:31.356478-03:00",
+      "topico": "Kubernetes Básico",
+      "resumo_explicacao": "",
+      "exercicios": [
+        {
+          "enunciado": "Crie um Pod chamado `meu-pod` que contenha um contêiner `nginx`.",
+          "tipo": "objetiva",
+          "resposta_formando": "(b) `kubectl run meu-pod --image=nginx`",
+          "correto": true,
+          "feedback": "Parabéns, Tainá! Você acertou a resposta. O comando `kubectl run meu-pod --image=nginx` cria um Pod chamado `meu-pod` com a imagem `nginx` e o inicializa no cluster."
+        },
+        {
+          "enunciado": "Crie um Service chamado `meu-service` que expõe o Pod `meu-pod` através de um endpoint.",
+          "tipo": "objetiva",
+          "resposta_formando": "(a) `kubectl expose pod meu-pod --type=NodePort --name=meu-service`",
+          "correto": true,
+          "feedback": "Parabéns, Tainá! Você acertou a resposta. O comando `kubectl expose pod meu-pod --type=NodePort --name=meu-service` cria um Service chamado `meu-service` que expõe o Pod `meu-pod` em um endpoint NodePort, permitindo que você acesse o serviço a partir de qualquer nó no cluster."
+        }
+      ],
+      "desempenho": 1.0
+    }
+  ],
+  "habilidades_adquiridas": [],
+  "ajustes_plano": []
+}

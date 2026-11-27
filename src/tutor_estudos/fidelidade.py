@@ -19,6 +19,20 @@ def _normalizar(texto: str) -> str:
     return " ".join(sem_acento.lower().split())
 
 
+def normalizar_habilidades_plano(rascunho: RascunhoPlano, lacunas: Lacunas) -> RascunhoPlano:
+    """Mapeia nomes descritivos (ex.: 'Desenvolvimento com Django') para o nome exato da lacuna quando inequívoco."""
+    mapa = {_normalizar(l.habilidade): l.habilidade for l in lacunas.itens}
+    for t in rascunho.topicos:
+        norm = _normalizar(t.habilidade)
+        if norm in mapa:
+            t.habilidade = mapa[norm]
+            continue
+        candidatos = [original for chave, original in mapa.items() if chave and chave in norm]
+        if len(candidatos) == 1:
+            t.habilidade = candidatos[0]
+    return rascunho
+
+
 def verificar_plano(rascunho: RascunhoPlano, lacunas: Lacunas) -> list[str]:
     """Confere se o plano cobre as lacunas prioritárias, não inventa habilidades e respeita pré-requisitos."""
     problemas: list[str] = []
@@ -53,10 +67,6 @@ def verificar_plano(rascunho: RascunhoPlano, lacunas: Lacunas) -> list[str]:
                     f"O pré-requisito \"{pre}\" do tópico \"{t.titulo}\" não aparece em nenhum tópico anterior do plano."
                 )
         vistos.add(_normalizar(t.titulo))
-
-    for t in rascunho.topicos:
-        if not t.objetivos and not t.atividades:
-            problemas.append(f"O tópico \"{t.titulo}\" precisa ter pelo menos objetivos ou atividades preenchidos.")
 
     return problemas
 
