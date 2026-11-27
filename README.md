@@ -47,7 +47,7 @@ pip install -e ".[ollama,anthropic,groq,testes]"
 Copie `.env.exemplo` para `.env` e escolha o provedor desejado em `MODELO_LLM`:
 
 - **Ollama (local / gratuito):** `MODELO_LLM=ollama:qwen2.5:7b` ou `ollama:llama3.2` (com o Ollama em execução).
-- **Groq (camada gratuita):** `MODELO_LLM=groq:llama-3.3-70b-versatile` e `GROQ_API_KEY=...`.
+- **Groq (camada gratuita):** `MODELO_LLM=groq:openai/gpt-oss-120b` (ou `groq:qwen/qwen3.8-27b`) e `GROQ_API_KEY=...`.
 - **Anthropic (Claude):** `MODELO_LLM=anthropic:claude-sonnet-4-5` e `ANTHROPIC_API_KEY=...`.
 
 > Nunca envie o `.env` para o repositório.

@@ -151,8 +151,8 @@ class ServicoTutor:
             name="Extrator do plano de estudos",
             instructions=[
                 "Leia as lacunas, o currículo e a conversa da tutoria e extraia o RascunhoPlano estruturado.",
-                "Crie tópicos APENAS para habilidades que aparecem no JSON de `lacunas` (nunca invente outras habilidades).",
-                "Garanta que TODA lacuna com `prioridade == 'alta'` tenha pelo menos um tópico.",
+                "REGRA CRÍTICA para `topicos[].habilidade`: use EXATAMENTE o nome curto da habilidade como aparece em `lacunas.itens[].habilidade` (por exemplo: \"Power BI\" ou \"Apache Airflow\"). NUNCA coloque frases, verbos ou objetivos no campo `habilidade` — frases de aprendizagem vão em `objetivos` e `titulo`.",
+                "Garanta que TODA lacuna com `prioridade == 'alta'` tenha pelo menos um tópico com `habilidade` exatamente igual ao nome da lacuna.",
                 "Informe em `horas_semanais` a disponibilidade semanal do formando (ex.: 6.0), e NUNCA a soma das horas dos tópicos.",
                 "Informe em `horas_estimadas` de CADA tópico um número positivo maior que zero (ex.: 4.0, 6.0 ou 8.0; nunca 0).",
                 "Cada tópico deve ter `objetivos` e/ou `atividades` preenchidos; `prerequisitos` deve citar apenas títulos exatos de tópicos anteriores.",
@@ -256,10 +256,15 @@ class ServicoTutor:
         ]
         prompt = _contexto(lacunas, curriculo) + "\n\nConversa (JSON):\n" + json.dumps(conversa, ensure_ascii=False)
 
+        habilidades_permitidas = ", ".join(f'"{l.habilidade}"' for l in lacunas.itens)
+        prompt_plano = (
+            prompt
+            + f"\n\nLembrete obrigatório: o campo `habilidade` de cada tópico deve ser EXATAMENTE um destes valores: {habilidades_permitidas}."
+        )
         rascunho_plano = self._gerar_verificado(
             self.extrator_plano,
             RascunhoPlano,
-            prompt,
+            prompt_plano,
             lambda r: verificar_plano(r, lacunas),
         )
         plano = montar_plano(rascunho_plano, lacunas, id_formando)

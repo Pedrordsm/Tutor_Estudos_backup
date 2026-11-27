@@ -2,47 +2,43 @@
   "cabecalho": {
     "versao_contrato": "1.0",
     "modulo": "tutor_estudos",
-    "gerado_em": "2026-11-25T14:59:45.698928-03:00",
+    "gerado_em": "2026-11-26T23:20:15.224622-03:00",
     "id_formando": "f01"
   },
   "sessoes": [
     {
-      "data": "2023-03-01T10:00:00Z",
-      "topico": "Introdução ao SQL",
-      "resumo_explicacao": "Aprenda sobre a linguagem de consultas SQL e como usêl-a para acessar e manipular dados em bancos de dados.",
+      "data": "2026-11-26T23:20:15.224486-03:00",
+      "topico": "Dimensões e Fatos",
+      "resumo_explicacao": "",
       "exercicios": [
         {
-          "enunciado": "Aqui está a consulta que você precisa criar:\n\n`SELECT nome FROM usuarios WHERE idade > 20;`\n\n**O que você precisa fazer:**\n\n1. Copie a consulta acima.\n2. Substitua o nome da tabela de usuários por um nome que você escolher.\n3. Execute a consulta no seu banco de dados.\n\n**Dicas:**\n\n* Certifique-se de que você está copiando a consulta corretamente.\n* Certifique-se de que você está substituindo o nome da tabela de usuários por um nome que você escolher.\n* Se você tiver alguma dúvida, nêt hesite em perguntar.",
+          "enunciado": "Crie uma tabela de dimensão simples e uma tabela de fato.",
           "tipo": "codigo",
-          "resposta_formando": null,
-          "correto": null,
-          "feedback": null
-        },
-        {
-          "enunciado": "Agora que você aprendeu sobre SQL, vamos aprender sobre Power BI. Power BI é uma ferramenta de análise de dados que ajuda a criar relatórios e visualizar dados de forma interativa.\n\n**Exercício prático:**\n\nVamos criar um relatório simples em Power BI. Vamos escolher um conjunto de dados que você já conhece.\n\n**Dados:**\n\nVamos usar os dados da tabela de usuãrios que criamos anteriormente.\n\n**Exemplo:**\n\n```\n+----+----------+-----------+----------+\n| id | nome     | email     | idade    |\n+----+----------+-----------+----------+\n| 1  | João     | joao@gmail | 25       |\n| 2  | Maria    | maria@gmail| 30       |\n| 3  | Pedro    | pedro@gmail| 35       |\n| 4  | João     | joao2@gmail| 20       |\n| 5  | Maria    | maria2@gmail| 40       |\n+----+----------+-----------+----------+\n```\n\n**Tarefa:**\n\n1. Abra Power BI e crie um novo relatório.\n2. Selecione a tabela de usuãrios como a fonte de dados.\n3. Crie um gráfico que mostre a idade média dos usuários.\n4. Adicione um filtro para mostrar apenas os usuários com mais de 20 anos de idade.\n\n**Dicas:**\n\n* Certifique-se de que você estç selecionando a tabela de usuãrios corretamente.\n* Certifique-se de que você estç criando o gráfico corretamente.\n* Certifique-se de que você estç adicionando o filtro corretamente.\n\nQual é sua opinição sobre esse exercício?",
-          "tipo": "discursiva",
-          "resposta_formando": null,
-          "correto": null,
-          "feedback": null
-        },
-        {
-          "enunciado": "Vamos criar um relatório que mostre a idade média dos usuários, o número de usuários com mais de 20 anos de idade e o número de usuários com menos de 20 anos de idade.\n\n**Tarefa:**\n\n1. Abra o relatório que você criou anteriormente.\n2. Clique no botão \"Filtro\" no topo da janela.\n3. No painel de filtro, clique no botão \"+\" e selecione \"Criterio\".\n4. No painel de critérios, selecione \"Idade\" e \"Maior que 20\".\n5. Clique no botão \"Filtro\" novamente e selecione \"Maior que 10\".\n6. Clique no botão \"Aplicar\" para adicionar os critérios ao filtro.\n7. Clique no botão \"Gráfico\" no topo da janela.\n8. No painel de gráficos, clique no botão \"+\" e selecione \"Gráfico de barras\".\n9. Arraste e solte os dados da tabela de usuários para o gráfico de barras.\n10. Clique no botão \"Aplicar\" para criar o gráfico.\n\n**Dicas:**\n\n* Certifique-se de que você estç selecionando os critérios corretamente.\n* Certifique-se de que você estç criando o gráfico corretamente.\n* Certifique-se de que você estç aplicando os critérios ao gráfico corretamente.\n\nQual é sua opinição sobre esse exercício?",
-          "tipo": "discursiva",
-          "resposta_formando": null,
-          "correto": null,
-          "feedback": null
-        },
-        {
-          "enunciado": "Você tem certeza de que quer sair dessa aula de Power BI?\n\nSe você está pronto para continuar com outras aulas, eu posso concluir essa sessão e começar uma nova.\n\nSe você precisa de mais tempo ou precisa de alguma ajuda adicional, basta me dizer!\n\n**Conclusão da sessão:**\n\nEssa foi a última aula desta sessão. Espero que você tenha aprendido algo novo e útil sobre Power BI.\n\nSe você precisa de mais informações ou precisa de alguma ajuda adicional, basta me dizer! Estou aqui para ajudar.\n\n**Fim da sessão**,",
-          "tipo": "discursiva",
-          "resposta_formando": null,
-          "correto": null,
-          "feedback": null
+          "resposta_formando": "Criação da Tabela de Clientes (Dimensão) e Tabela de Vendas (Fato)",
+          "correto": true,
+          "feedback": "Parabéns, você criou corretamente a tabela de Clientes como uma dimensão e a tabela de Vendas como um fato. A relação entre as tabelas também foi definida corretamente."
         }
       ],
-      "desempenho": 0.0
+      "desempenho": 1.0
+    },
+    {
+      "data": "2026-11-26T23:20:15.224486-03:00",
+      "topico": "Medidas com DAX",
+      "resumo_explicacao": "",
+      "exercicios": [
+        {
+          "enunciado": "Crie uma medida DAX para calcular o total de vendas no mês de janeiro.",
+          "tipo": "codigo",
+          "resposta_formando": "Total_Vendas_Jan = CALCULATE(SUM(Vendas[Valor]), MONTH(Vendas[Data]) = 1)",
+          "correto": true,
+          "feedback": "Você criou corretamente a medida DAX para calcular o total de vendas no mês de janeiro. Parabéns!"
+        }
+      ],
+      "desempenho": 1.0
     }
   ],
   "habilidades_adquiridas": [],
-  "ajustes_plano": []
+  "ajustes_plano": [
+    "Se você estiver pronto para avançar para a próxima sessão ou tarefa, me avise! Se tiver mais perguntas ou precisar de mais exercícios, estarei aqui para ajudar."
+  ]
 }

@@ -2,20 +2,24 @@
   "cabecalho": {
     "versao_contrato": "1.0",
     "modulo": "tutor_estudos",
-    "gerado_em": "2026-11-25T14:59:16.731004-03:00",
+    "gerado_em": "2026-11-26T23:19:51.134301-03:00",
     "id_formando": "f01"
   },
-  "horas_semanais": 37.0,
-  "data_inicio": "2026-11-25",
+  "horas_semanais": 6.0,
+  "data_inicio": "2026-11-26",
   "data_prevista_conclusao": "2026-12-02",
   "topicos": [
     {
       "ordem": 1,
-      "habilidade": "SQL",
-      "titulo": "Conceitos de SQL",
-      "objetivos": [],
+      "habilidade": "Power BI",
+      "titulo": "Criação de Dimensões e Fatos",
+      "objetivos": [
+        "Criar tabelas de dimensão e fato",
+        "Relacionar tabelas de dimensão e fato",
+        "Criar medidas com DAX"
+      ],
       "prerequisitos": [],
-      "horas_estimadas": 10.0,
+      "horas_estimadas": 2.0,
       "atividades": [],
       "projeto_pratico": null,
       "situacao": "pendente"
@@ -23,21 +27,14 @@
     {
       "ordem": 2,
       "habilidade": "Power BI",
-      "titulo": "Introdução ao Power BI",
-      "objetivos": [],
+      "titulo": "Medidas com DAX",
+      "objetivos": [
+        "Compreender conceitos básicos de DAX",
+        "Criar medidas simples com DAX",
+        "Ajustar medidas com filtros e condições"
+      ],
       "prerequisitos": [],
-      "horas_estimadas": 12.0,
-      "atividades": [],
-      "projeto_pratico": null,
-      "situacao": "pendente"
-    },
-    {
-      "ordem": 3,
-      "habilidade": "Python",
-      "titulo": "Básico de Python",
-      "objetivos": [],
-      "prerequisitos": [],
-      "horas_estimadas": 15.0,
+      "horas_estimadas": 3.0,
       "atividades": [],
       "projeto_pratico": null,
       "situacao": "pendente"
